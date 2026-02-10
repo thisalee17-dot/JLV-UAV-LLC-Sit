@@ -3,10 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JLV-UAV LLC</title>
+    <meta name="description" content="JLV-UAV LLC - Professional drone services throughout Florida. Real estate photography, property inspections, and aerial imaging.">
+    <title>JLV-UAV LLC - Professional Drone Services | Florida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .contact-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: #764ba2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path fill="%23ffffff" fill-opacity="0.05" d="M0,100 Q300,50 600,100 T1200,100 L1200,600 L0,600 Z"/></svg>');
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Coverage Section */
+        .coverage {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .coverage h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .coverage p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>JLV-UAV LLC</h1>
-    <p>Coming Soon</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="JLV_UAV_LLC_logo.png" alt="JLV-UAV LLC Logo" class="logo">
+                </div>
+                <div class="contact-header">
+                    <a href="tel:7723186666" class="contact-item">
+                        📞 772-318-6666
+                    </a>
+                    <a href="mailto:jlv-uav@outlook.com" class="contact-item">
+                        ✉️ jlv-uav@outlook.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>JLV-UAV LLC</h1>
+            <p class="tagline">I'd Rather Be Flying</p>
+            <p>Professional drone services delivering stunning aerial photography and comprehensive property inspections across the state of Florida.</p>
+            <a href="#contact" class="cta-button">Get a Quote</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🏘️ Real Estate Photography</h3>
+                    <p>Showcase properties from breathtaking angles. Our aerial photography captures the full scope of residential and commercial properties, highlighting features that ground-level photos simply can't match.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔍 Property Inspections</h3>
+                    <p>Safe, efficient roof and property inspections without the need for ladders or scaffolding. Get detailed aerial views of hard-to-reach areas with high-resolution imagery.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📸 Aerial Imaging</h3>
+                    <p>Professional drone photography and videography for construction progress, land surveys, events, and commercial projects. FAA Part 107 certified for safe, legal commercial operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coverage">
+        <div class="container">
+            <h2>Statewide Florida Coverage</h2>
+            <p>From the Panhandle to the Keys, we provide professional drone services throughout Florida. Licensed, insured, and ready to fly.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h3>📞 Call Us</h3>
+                    <a href="tel:7723186666">772-318-6666</a>
+                </div>
+                <div class="contact-box">
+                    <h3>✉️ Email Us</h3>
+                    <a href="mailto:jlv-uav@outlook.com">jlv-uav@outlook.com</a>
+                </div>
+                <div class="contact-box">
+                    <h3>📍 Service Area</h3>
+                    <p>Statewide Florida Coverage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JLV-UAV LLC. All rights reserved.</p>
+            <p>FAA Part 107 Certified | Licensed & Insured</p>
+        </div>
+    </footer>
 </body>
 </html>
