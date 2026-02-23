@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join JLV-UAV LLC's pilot network - contract opportunities for licensed drone pilots">
+    <title>Pilot Registry - JLV-UAV LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Form Section */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .form-section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Radio button styling */
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Checkbox styling */
+        .checkbox-group {
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Info box */
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .info-box p {
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cancel-btn {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .cancel-btn:hover {
+            background: #7f8c8d;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="JLV_UAV_LLC_logo.png" alt="JLV-UAV LLC Logo" class="logo">
+            <h1>Join Our Pilot Network</h1>
+            <p>Contract opportunities for licensed drone pilots</p>
+        </header>
+
+        <div class="form-container">
+            <div class="info-box">
+                <p><strong>✈️ Why Join Our Network?</strong></p>
+                <p>• Access to contract work throughout Florida</p>
+                <p>• Flexible scheduling - work when you're available</p>
+                <p>• Competitive pay for professional drone services</p>
+                <p>• No upfront costs or membership fees</p>
+            </div>
+
+            <div id="successMessage" class="success-message">
+                ✓ Thank you for registering! We'll review your application and contact you soon.
+            </div>
+
+            <form id="pilotRegistryForm">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="two-col">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location & Travel -->
+                <div class="form-section">
+                    <h2 class="section-title">Location & Service Area</h2>
+                    
+                    <div class="form-group">
+                        <label for="city">City/Town <span class="required">*</span></label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+
+                    <div class="two-col">
+                        <div class="form-group">
+                            <label for="county">County <span class="required">*</span></label>
+                            <input type="text" id="county" name="county" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{5}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelDistance">Willing to Travel (miles from home base) <span class="required">*</span></label>
+                        <select id="travelDistance" name="travelDistance" required>
+                            <option value="">-- Select Distance --</option>
+                            <option value="25">Up to 25 miles</option>
+                            <option value="50">Up to 50 miles</option>
+                            <option value="100">Up to 100 miles</option>
+                            <option value="150">Up to 150 miles</option>
+                            <option value="200">Up to 200 miles</option>
+                            <option value="statewide">Statewide (anywhere in Florida)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="form-section">
+                    <h2 class="section-title">FAA Certification</h2>
+                    
+                    <div class="form-group">
+                        <label for="part107Number">Part 107 Certificate Number <span class="required">*</span></label>
+                        <input type="text" id="part107Number" name="part107Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="certExpiration">Certificate Expiration Date <span class="required">*</span></label>
+                        <input type="text" id="certExpiration" name="certExpiration" placeholder="MM/DD/YYYY" required>
+                    </div>
+                </div>
+
+                <!-- Equipment -->
+                <div class="form-section">
+                    <h2 class="section-title">Equipment</h2>
+                    
+                    <div class="form-group">
+                        <label>Drone Equipment Owned <span class="required">*</span></label>
+                        <textarea id="equipment" name="equipment" placeholder="List your drones (make/model), cameras, accessories, etc." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Services You Can Provide:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="serviceRealEstate" name="services" value="real-estate">
+                                <label for="serviceRealEstate">Real Estate Photography</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="serviceInspection" name="services" value="inspection">
+                                <label for="serviceInspection">Property Inspections</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="serviceConstruction" name="services" value="construction">
+                                <label for="serviceConstruction">Construction Progress</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="serviceVideo" name="services" value="video">
+                                <label for="serviceVideo">Video Production</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="serviceMapping" name="services" value="mapping">
+                                <label for="serviceMapping">Mapping/Surveying</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance -->
+                <div class="form-section">
+                    <h2 class="section-title">Insurance</h2>
+                    
+                    <div class="form-group">
+                        <label>Do you have liability insurance? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="insuranceYes" name="hasInsurance" value="yes" required>
+                                <label for="insuranceYes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="insuranceNo" name="hasInsurance" value="no" required>
+                                <label for="insuranceNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="insuranceDetails" style="display: none;">
+                        <div class="two-col">
+                            <div class="form-group">
+                                <label for="insuranceCompany">Insurance Company</label>
+                                <input type="text" id="insuranceCompany" name="insuranceCompany">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="coverageAmount">Coverage Amount</label>
+                                <input type="text" id="coverageAmount" name="coverageAmount" placeholder="e.g., $1,000,000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience & Availability -->
+                <div class="form-section">
+                    <h2 class="section-title">Experience & Availability</h2>
+                    
+                    <div class="two-col">
+                        <div class="form-group">
+                            <label for="yearsExperience">Years of Drone Experience <span class="required">*</span></label>
+                            <select id="yearsExperience" name="yearsExperience" required>
+                                <option value="">-- Select --</option>
+                                <option value="less-1">Less than 1 year</option>
+                                <option value="1-2">1-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5+">5+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="availability">Availability <span class="required">*</span></label>
+                            <select id="availability" name="availability" required>
+                                <option value="">-- Select --</option>
+                                <option value="full-time">Full-time (40+ hrs/week)</option>
+                                <option value="part-time">Part-time (20-40 hrs/week)</option>
+                                <option value="weekends">Weekends only</option>
+                                <option value="on-call">On-call/As needed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information / Portfolio Links</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="Tell us about your experience, share portfolio links, or add any other relevant information..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <button type="button" class="cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide insurance details based on selection
+        const insuranceRadios = document.getElementsByName('hasInsurance');
+        const insuranceDetails = document.getElementById('insuranceDetails');
+
+        insuranceRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    insuranceDetails.style.display = 'block';
+                } else {
+                    insuranceDetails.style.display = 'none';
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('pilotRegistryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Handle regular fields
+            for (let [key, value] of formData.entries()) {
+                if (key === 'services') {
+                    // Collect all checked services
+                    if (!data.services) data.services = [];
+                    data.services.push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reset form
+            this.reset();
+            insuranceDetails.style.display = 'none';
+
+            // Log data (in production, this would send to your email/backend)
+            console.log('Pilot Registry Data:', data);
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
