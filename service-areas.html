@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JLV-UAV LLC service areas throughout Florida - professional drone services">
+    <title>Service Areas - JLV-UAV LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .back-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: white;
+            padding: 40px 0 80px;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .primary {
+            background: #2563eb;
+        }
+
+        .extended {
+            background: #60a5fa;
+        }
+
+        .available {
+            background: #f5f5dc;
+        }
+
+        .legend-text {
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Info Boxes */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .info-box ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-box ul li {
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .info-box ul li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .map-container {
+                padding: 20px;
+            }
+
+            .legend {
+                gap: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="JLV_UAV_LLC_logo.png" alt="JLV-UAV LLC Logo" class="logo">
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Our Service Areas</h1>
+            <p>Professional drone services throughout Florida with priority coverage along the Treasure Coast</p>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <img src="UltiMaps___Florida__US___Counties__1_.png" alt="JLV-UAV Florida Service Areas Map" class="map-image">
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color primary"></div>
+                        <span class="legend-text">Primary Service Area</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color extended"></div>
+                        <span class="legend-text">Extended Coverage</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color available"></div>
+                        <span class="legend-text">Available Statewide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🎯 Primary Service Area</h3>
+                    <p><strong>St. Lucie County & Immediate Neighbors</strong></p>
+                    <ul>
+                        <li>Same-day service available</li>
+                        <li>No travel fees</li>
+                        <li>Fastest response times</li>
+                        <li>Local expertise</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>📍 Extended Coverage</h3>
+                    <p><strong>Treasure Coast to South Florida</strong></p>
+                    <ul>
+                        <li>Next-day service typically available</li>
+                        <li>Minimal travel fees</li>
+                        <li>Familiar with local regulations</li>
+                        <li>Regular service routes</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>🌴 Statewide Florida</h3>
+                    <p><strong>Panhandle to the Keys</strong></p>
+                    <ul>
+                        <li>Scheduled service available</li>
+                        <li>Travel fees apply based on distance</li>
+                        <li>FAA Part 107 certified statewide</li>
+                        <li>Licensed and insured everywhere</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us today for a free quote on your drone service needs</p>
+            <a href="quote.html" class="cta-button">Request a Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JLV-UAV LLC. All rights reserved.</p>
+            <p>FAA Part 107 Certified | Licensed & Insured</p>
+            <p style="margin-top: 15px;">
+                <a href="index.html">Home</a> | 
+                <a href="quote.html">Get Quote</a> | 
+                <a href="pilot-registry.html">Pilot Network</a> | 
+                <a href="service-areas.html">Service Areas</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
