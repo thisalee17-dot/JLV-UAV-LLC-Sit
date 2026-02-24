@@ -235,7 +235,9 @@
                 ✓ Thank you! Your quote request has been submitted. We'll contact you soon.
             </div>
 
-            <form id="quoteForm">
+            <form id="quoteForm" action="https://formspree.io/f/mrearklg" method="POST">
+                <input type="hidden" name="_subject" value="New Quote Request - JLV-UAV LLC">
+                <input type="hidden" name="_next" value="https://jlv-uav.com">
                 <!-- Company Information -->
                 <div class="form-section">
                     <h2 class="section-title">Company Information</h2>
@@ -426,35 +428,14 @@
             });
         });
 
-        // Form submission
+        // Form submission - handled by Formspree
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Reset form
-            this.reset();
-            
-            // Re-enable inspection section
+            // Allow Formspree to handle submission
+            // Re-enable inspection section before submit
             inspectionSection.classList.remove('disabled');
             Object.values(inspectionAddressFields).forEach(field => {
                 field.disabled = false;
-                field.setAttribute('required', 'required');
             });
-
-            // Sends to quotes@jlv-uav.com
-            console.log('Quote Request Data:', data);
             
             // Hide success message after 5 seconds
             setTimeout(() => {
