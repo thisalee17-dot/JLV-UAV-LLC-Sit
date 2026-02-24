@@ -280,7 +280,9 @@
                 ✓ Thank you for registering! We'll review your application and contact you soon.
             </div>
 
-            <form id="pilotRegistryForm">
+            <form id="pilotRegistryForm" action="https://formspree.io/f/mdalydno" method="POST">
+                <input type="hidden" name="_subject" value="New Pilot Registry Application - JLV-UAV LLC">
+                <input type="hidden" name="_next" value="https://jlv-uav.com">
                 <!-- Personal Information -->
                 <div class="form-section">
                     <h2 class="section-title">Personal Information</h2>
@@ -480,42 +482,9 @@
             });
         });
 
-        // Form submission
+        // Form submission - handled by Formspree
         document.getElementById('pilotRegistryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Collect form data
-            const formData = new FormData(this);
-            const data = {};
-            
-            // Handle regular fields
-            for (let [key, value] of formData.entries()) {
-                if (key === 'services') {
-                    // Collect all checked services
-                    if (!data.services) data.services = [];
-                    data.services.push(value);
-                } else {
-                    data[key] = value;
-                }
-            }
-
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Reset form
-            this.reset();
-            insuranceDetails.style.display = 'none';
-
-            // Sends to registry@jlv-uav.com
-            console.log('Pilot Registry Data:', data);
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
+            // Allow Formspree to handle submission
         });
     </script>
 </body>
